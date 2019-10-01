@@ -1,0 +1,2 @@
+# tomagatchi-project
+mini project 
