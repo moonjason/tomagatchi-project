@@ -4,5 +4,19 @@
 }
 
 html {
-    font-size: 62.55; 
+    font-size: 62.5%; 
+}
+
+.container { 
+    border: .1rem solid black;
+    height: 600px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+#lbj {
+    padding-top: 20px;
+    height:  70%;
+    width: 70%;
 }

@@ -13,6 +13,7 @@ class Pet {
 const game = {
     start(){
         // block of code
+        
     }
 }
 
