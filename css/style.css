@@ -8,9 +8,17 @@ html {
 }
 
 h1 {
-    font-size: 3.2rem;
+    font-size: 3.8rem;
     padding: 0 0 5px 0;
 }
+
+h2 {
+    text-decoration: underline;
+}
+/* 
+#pet {
+    display: none;
+} */
 
 .container { 
     border: .1rem solid black;
