@@ -13,10 +13,48 @@ html {
     width: 400px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
-#lbj {
+img {
+    width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: contain;
+}
+
+.image {
     padding-top: 20px;
-    height:  70%;
-    width: 70%;
+    height:  68%;
+    width: 100%;
+    border: .1rem solid black;
+}
+
+.info { 
+    height:  32%;
+    width: 100%;
+    border: .1rem solid black;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px 0px;
+}
+
+.stats p{
+    float: left;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 1.7rem;
+}
+
+
+button {
+    padding: 10px 10px;
 }

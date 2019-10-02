@@ -1,4 +1,4 @@
-const name = prompt('What would you like to name your pet?')
+// const name = prompt('What would you like to name your pet?')
 
 class Pet {
     constructor(name){
