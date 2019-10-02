@@ -7,6 +7,11 @@ html {
     font-size: 62.5%; 
 }
 
+h1 {
+    font-size: 3.2rem;
+    padding: 0 0 5px 0;
+}
+
 .container { 
     border: .1rem solid black;
     height: 600px;
@@ -53,4 +58,9 @@ img {
 
 button {
     padding: 10px 10px;
+}
+
+.factory {
+    text-align: center;
+    padding: 10px 0 0 0;
 }

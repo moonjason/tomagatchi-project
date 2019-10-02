@@ -45,4 +45,4 @@ const game = {
 
 const userPet = new Pet('jason');
 
-
+// map the buttons 
