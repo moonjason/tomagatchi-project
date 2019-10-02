@@ -42,10 +42,6 @@ img {
     padding: 5px 0px;
 }
 
-.stats p{
-    float: left;
-}
-
 .stats {
     display: flex;
     flex-direction: column;
