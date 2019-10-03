@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text:400,500,600,700&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <title>Document</title>
 </head>
 <body>
      <div class="factory">
-        <h1>Tomagotchi</h1>
+        <h1>Tomagotchi - Basketball Edition</h1>
         <button class="create" type="button">Create</button>
+        <button class="newgame" type="button">New Game</button>
     </div>
-    <div id="pet">
-        <div class="container">
+    <div id="game">
+        <div id="pet" class="container">
             <div class="image">
-                <img id="lbj-1" src="images/lbj-highschool.jpg">
+                <img id="lbj" class="slide" src="images/lebron1.jpg">
             </div>
             <div class="info">
                 <div class="btns">
@@ -25,11 +27,18 @@
                     <button class="play" type="button">Play</button>
                 </div>  
                 <div class="stats">
-                    <h2>Name</h2>
-                    <p class="age">Age: 0</p>
-                    <p class="hunger">Hunger: 0</p>
-                    <p class="boredom">Boredom: 0</p>
-                    <p class="sleepiness">Sleepiness: 0</p>
+                    <div>
+                        <h2>Name</h2>
+                        <p class="age">Age: 0</p>
+                    </div>
+                    <div>
+                        <p class="hunger">Hunger: 0</p>
+                        <p class="boredom">Boredom: 0</p>
+                    </div>
+                    <div>
+                        <p class="sleepiness">Sleepiness: 0</p>
+                        <p class="timer">Timer: 60</p>
+                    </div>
                 </div>
             </div>
         </div>

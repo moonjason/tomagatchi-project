@@ -1,9 +1,32 @@
-// const name = prompt('What would you like to name your pet?')
 const buttonsHandler = () =>{
+    $('.newgame').prop('disabled', true);
     $('.create').on('click', () => {
-        $('#pet').css('display', 'block');
+        $('#game').css('display', 'block');
+        const name = prompt('What would you like to name your pet?')
+        const userPet = new Pet(name);
+        $('.stats h2').text(`${name}`);
+        game.buttons(userPet);
+        game.setTime(userPet);
+        $('.create').prop('disabled', true); 
     });
-    game.buttons(userPet);
+    $('.newgame').on('click', () => {
+        const name = prompt('What would you like to name your pet?')
+        const userPet = new Pet(name);
+        $('.stats h2').text(`${name}`);
+        game.buttons(userPet);
+        game.setTime(userPet);
+        $('#lbj').attr('src', 'images/lebron1.jpg')
+        $('#lbj').css('border', '.6rem solid green')
+        $('#pet .hunger').text(`Hunger: 0`);
+        $('#pet .boredom').text(`Boredom: 0`);
+        $('#pet .sleepiness').text(`Sleepiness: 0`);
+        $('#pet .age').text(`Age: 0`);
+        $('.newgame').prop('disabled', true);
+        $('.btns button').prop('disabled', false);
+        $('#lbj').css('animation-duration', '3s, 0s');
+        game.time = 30;
+
+    });
 }
 
 class Pet {
@@ -37,16 +60,21 @@ const game = {
     setTime(pet) {
         const timer = setInterval(() => {
             this.time--;
-            console.log(this.time);
-            console.log(pet);
-            if(this.isDead(pet)){
+            $('.timer').text(`Timer: ${this.time}`);
+            if (this.isDead(pet)) {
                 clearInterval(timer);
-                console.log('Your pet died');
+                $('#lbj').attr('src', 'images/lebron4.png');
+                $('#lbj').css('border', '.6rem solid grey');
+                $('#lbj').css('animation-duration', '0s');
+                alert(`${pet.name} has retired.`);
+                $('.btns button').prop('disabled', true);
+                $('.newgame').prop('disabled', false); 
             };
             
-            // if (pet.age === 2 || pet.age === 4)
-            //  run can morph 
-            
+            if (pet.age === 1 || pet.age === 2) {
+                this.canMorph(pet); 
+            }            
+
             if (this.time === 25) {
                 pet.starve(); 
             } else if (this.time === 20) {
@@ -62,15 +90,17 @@ const game = {
         }, 1000)
     },
     isDead(pet){
-        if (pet.boredom === 2 || pet.sleepiness === 2 || pet.hunger === 2) {
+        if (pet.boredom === 5 || pet.sleepiness === 5 || pet.hunger === 5) {
             return true;
         };
     },
     canMorph(pet){
-        if (pet.age === 2) {
-           // manipulate to one pic 
+        if (pet.age === 1) {
+            $('#lbj').attr('src', 'images/lebron2.jpg')
+            $('#lbj').css('border', '.6rem solid red')
         } else {
-           // manipulate to other pic
+            $('#lbj').attr('src', 'images/lebron3.jpg')
+            $('#lbj').css('border', '.6rem solid yellow')
         }
     },
     buttons(pet){  
@@ -78,19 +108,32 @@ const game = {
             if ($(e.target).text() === 'Feed' && pet.hunger > 0) {
                 pet.hunger--;
                 $('#pet .hunger').text(`Hunger: ${pet.hunger}`);
+                flash();
             } else if ($(e.target).text() === 'Rest' && pet.sleepiness > 0) {
                 pet.sleepiness--;
                 $('#pet .sleepiness').text(`Sleepiness: ${pet.sleepiness}`);
+                flash();
             } else if ($(e.target).text() === 'Play' && pet.boredom > 0) {
                 pet.boredom--;
                 $('#pet .boredom').text(`Boredom: ${pet.boredom}`);
+                flash();
             }
+
         })
     }
 }
 
+function flash () {
+    $('#lbj').css('animation-name', 'slidein, flash');
+    $('#lbj').css('animation-duration', '3s, .25s');
+    $('#lbj').css('animation-iteration-count', 'infinite, 2');
 
-const userPet = new Pet('jason');
-buttonsHandler();
+    setTimeout(() => {
+        $('#lbj').css('animation-name', 'slidein');
+        $('#lbj').css('animation-duration', '3s');
+        $('#lbj').css('animation-iteration-count', 'infinite');
 
-// map the buttons 
+    }, 500)
+}
+
+buttonsHandler(); 
